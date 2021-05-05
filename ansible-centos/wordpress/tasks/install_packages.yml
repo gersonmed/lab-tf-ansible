@@ -1,0 +1,16 @@
+---
+- name: Instala pacotes de dependencias do sistema operacional
+  become: true
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+      - epel-release
+      - php
+      - httpd
+      - php-gd
+      - php-json
+      - mysql-server
+      - python3-PyMySQL
+      - php-mysqlnd
+      - unzip

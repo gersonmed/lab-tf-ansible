@@ -1,0 +1,9 @@
+---
+- name: Update yum repo and cache
+  become: true
+  yum:
+    name: '*'
+    state: latest
+  #- name: Upgrade all packages
+  # become: true
+  #yum: 

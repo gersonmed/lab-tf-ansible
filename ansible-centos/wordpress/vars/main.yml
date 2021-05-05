@@ -1,0 +1,6 @@
+---
+# vars file for wordpress
+
+mysql_user: root
+mysql_root_password: AcroK4nOcv
+wordpress_password: mudar@123

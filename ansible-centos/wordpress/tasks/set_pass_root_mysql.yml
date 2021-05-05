@@ -1,0 +1,12 @@
+---
+- name: update mysql root password for root account
+  become: true
+  mysql_user:
+      login_host: 'localhost'
+      login_user: 'root'
+      login_password: ''
+      name: 'root'
+      host: 'localhost'
+      password: '{{ mysql_root_password }}'
+      priv: "*.*:ALL,GRANT"
+      check_implicit_admin: true

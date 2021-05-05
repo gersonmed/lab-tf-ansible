@@ -1,0 +1,23 @@
+- name: Restart apache
+  service:
+    name: httpd
+    state: restarted
+  become: true
+
+- name: Restart mysql
+  service:
+    name: mysqld
+    state: restarted
+  become: true
+
+- name: Enable service httpd
+  ansible.builtin.service:
+    name: httpd
+    enabled: yes
+  become: true
+
+- name: Enable service mysql
+  ansible.builtin.service:
+    name: mysqld
+    enabled: yes
+  become: true

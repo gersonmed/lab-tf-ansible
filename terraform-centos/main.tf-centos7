@@ -1,0 +1,28 @@
+data "aws_ami" "centos" {
+  owners      = ["679593333241"]
+  most_recent = true
+  filter {
+    name   = "name"
+    values = ["CentOS 8*"]
+  }
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+}
+
+
+resource "aws_key_pair" "deployer" {
+  key_name   = "terraform-lab"
+  public_key = var.chave
+}
+
+resource "aws_instance" "zeus" {
+    ami = data.aws_ami.centos.id
+    instance_type = var.instance_type
+    security_groups = ["sg_web"]
+    key_name = "terraform-lab"
+    tags = {
+        Name = var.ec2name
+}
+}
